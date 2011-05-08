@@ -11,12 +11,14 @@ namespace gl {
 
 #include <list>
 
+namespace game { class GraphicsManager; }
+
 namespace util2d {
 
 class SpriteBatch
 {
 public:
-	SpriteBatch();
+	SpriteBatch(game::GraphicsManager& graphics_manager);
 
 	Sprite* newSprite();
 	void draw() const;
@@ -29,6 +31,8 @@ public:
 
 private:
 	void remove(Sprite& spr);
+
+	game::GraphicsManager& graphics_manager;
 
 	gl::Texture* texture;
 	std::list<Sprite> sprites;

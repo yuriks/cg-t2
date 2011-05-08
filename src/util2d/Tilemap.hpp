@@ -5,12 +5,14 @@
 #include "../util3d/gl/BufferObject.hpp"
 #include "../util3d/gl/Texture.hpp"
 
+namespace game { class GraphicsManager; }
+
 namespace util2d {
 
 class Tilemap
 {
 public:
-	Tilemap(int x, int y, int width, int height);
+	Tilemap(game::GraphicsManager& graphics_manager, int x, int y, int width, int height);
 
 	void draw();
 
@@ -30,6 +32,8 @@ public:
 
 private:
 	void fixupScrolling();
+
+	game::GraphicsManager& graphics_manager;
 
 	gl::Texture* texture;
 

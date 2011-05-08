@@ -3,11 +3,17 @@
 
 #include "Entity.hpp"
 
+#include "InputManager.hpp"
+#include "GraphicsManager.hpp"
+#include "../util3d/Matrix.hpp"
+
 #include <vector>
 #include <map>
 #include <set>
 #include <string>
 #include <functional>
+#include <memory>
+#include <utility>
 #include <boost/noncopyable.hpp>
 
 template <typename T, typename F = std::less<T>>
@@ -26,13 +32,13 @@ struct Deref
 namespace game
 {
 
-class GameManager : boost::noncopyable
+class GameScene : boost::noncopyable
 {
 public:
-	~GameManager();
+	virtual ~GameScene();
 
-	void update();
-	void draw();
+	virtual void update(GameManager& manager);
+	virtual void draw(GameManager& manager);
 
 	void addEntity(Entity* entity); // entity is now owned by GameManager
 	void removeEntity(Entity* entity); // entity is not owned by GameManager anymore
@@ -40,10 +46,8 @@ public:
 	Entity* lookupEntity(const std::string& name);
 	bool renameEntity(Entity* entity, const std::string& new_name);
 
-	static void main_loop();
-
 private:
-
+	
 	// This owns all entities inserted into it
 	std::set<Entity*> entities;
 
@@ -51,6 +55,35 @@ private:
 	std::map<std::string, Entity*> named_entities;
 	std::set<DrawableLayer*, Deref<DrawableLayer>> layers;
 	std::set<Thing*> things;
+};
+
+class GameManager : boost::noncopyable
+{
+public:
+	static const unsigned int TICKS_PER_SEC = 60u;
+
+	GameManager();
+
+	void update();
+	void draw();
+
+	GameScene& activeScene();
+	void pushScene(std::unique_ptr<GameScene> scene);
+
+	bool isSlow() const;
+	void stopGame();
+
+	static void main_loop();
+
+	// Order is important!
+	GraphicsManager graphics_manager;
+	InputManager input_manager;
+
+private:
+	std::vector<std::unique_ptr<GameScene>> scene_stack;
+
+	bool running;
+	bool is_slow;
 };
 
 } // namespace game

@@ -7,6 +7,7 @@ namespace game
 {
 
 class GameManager;
+class GameScene;
 
 // Anything that needs to be updated on each engine tick
 class Entity
@@ -14,9 +15,9 @@ class Entity
 public:
 	virtual ~Entity();
 
-	virtual void update(GameManager& manager) = 0;
+	virtual void update(GameManager& manager, GameScene& scene) = 0;
 
-	bool changeName(GameManager& manager, const std::string& new_name);
+	bool changeName(GameScene& scene, const std::string& new_name);
 	const std::string& getName() const;
 
 private:
@@ -27,7 +28,7 @@ private:
 class DrawableLayer : public Entity
 {
 public:
-	virtual void draw(GameManager& manager) = 0;
+	virtual void draw(GameManager& manager, GameScene& scene) = 0;
 
 	inline bool operator < (const DrawableLayer& rhs) const { return depth < rhs.depth; }
 

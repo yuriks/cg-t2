@@ -5,13 +5,30 @@
 namespace game
 {
 
+namespace
+{
+
+bool close_requested;
+
+int GLFWCALL close_callback()
+{
+	close_requested = true;
+	return GL_FALSE;
+}
+
+} // namespace
+
 InputManager::InputManager()
 {
 	actions.fill(false);
+	actions_pressed.fill(false);
+
+	glfwSetWindowCloseCallback(close_callback);
 }
 
 void InputManager::update()
 {
+	std::copy(actions.cbegin(), actions.cend(), actions_pressed.begin());
 	actions.fill(false);
 
 	int key = 0;
@@ -25,11 +42,25 @@ void InputManager::update()
 
 		actions[i->second] = actions[i->second] || state;
 	}
+
+	if (close_requested)
+	{
+		close_requested = false;
+		actions[Action::QUIT] = true;
+	}
+
+	std::transform(actions.cbegin(), actions.cend(), actions_pressed.cbegin(), actions_pressed.begin(),
+		[](bool a, bool old_a) { return a && !old_a; });
 }
 
 bool InputManager::getActionState(Action::type action) const
 {
 	return actions[action];
+}
+
+bool InputManager::getActionPressed(Action::type action) const
+{
+	return actions_pressed[action];
 }
 
 void InputManager::addKeyAssignment(std::pair<int, Action::type> assignment)

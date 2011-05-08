@@ -3,7 +3,12 @@
 namespace game
 {
 
-GameManager::~GameManager()
+GameManager::GameManager()
+	: running(true), is_slow(false)
+{
+}
+
+GameScene::~GameScene()
 {
 	for (auto i = entities.begin(), end = entities.end(); i != end; ++i)
 		delete *i;
@@ -11,21 +16,45 @@ GameManager::~GameManager()
 
 void GameManager::update()
 {
-	for (auto i = entities.begin(), end = entities.end(); i != end; ++i)
-	{
-		(*i)->update(*this);
-	}
+	input_manager.update();
+
+	activeScene().update(*this);
 }
 
 void GameManager::draw()
 {
-	for (auto i = layers.begin(), end = layers.end(); i != end; ++i)
+	activeScene().draw(*this);
+
+	graphics_manager.swapBuffers();
+}
+
+GameScene& GameManager::activeScene()
+{
+	return *scene_stack.back().get();
+}
+
+void GameManager::pushScene(std::unique_ptr<GameScene> scene)
+{
+	scene_stack.push_back(std::move(scene));
+}
+
+void GameScene::update(GameManager& manager)
+{
+	for (auto i = entities.begin(), end = entities.end(); i != end; ++i)
 	{
-		(*i)->draw(*this);
+		(*i)->update(manager, *this);
 	}
 }
 
-void GameManager::addEntity(Entity* entity)
+void GameScene::draw(GameManager& manager)
+{
+	for (auto i = layers.begin(), end = layers.end(); i != end; ++i)
+	{
+		(*i)->draw(manager, *this);
+	}
+}
+
+void GameScene::addEntity(Entity* entity)
 {
 	if (!entities.insert(entity).second)
 		return;
@@ -44,7 +73,7 @@ void GameManager::addEntity(Entity* entity)
 	}
 }
 
-void GameManager::removeEntity(Entity* entity)
+void GameScene::removeEntity(Entity* entity)
 {
 	if (!entities.erase(entity))
 		return;
@@ -63,7 +92,7 @@ void GameManager::removeEntity(Entity* entity)
 	}
 }
 
-Entity* GameManager::lookupEntity(const std::string& name)
+Entity* GameScene::lookupEntity(const std::string& name)
 {
 	auto i = named_entities.find(name);
 
@@ -73,7 +102,7 @@ Entity* GameManager::lookupEntity(const std::string& name)
 		return i->second;
 }
 
-bool GameManager::renameEntity(Entity* entity, const std::string& new_name)
+bool GameScene::renameEntity(Entity* entity, const std::string& new_name)
 {
 	auto lb = named_entities.lower_bound(new_name);
 
@@ -89,9 +118,14 @@ bool GameManager::renameEntity(Entity* entity, const std::string& new_name)
 	}
 }
 
-void GameManager::main_loop()
+bool GameManager::isSlow() const
 {
-	// TODO
+	return is_slow;
+}
+
+void GameManager::stopGame()
+{
+	running = false;
 }
 
 } // namespace game

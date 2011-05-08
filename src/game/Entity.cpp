@@ -5,9 +5,9 @@
 namespace game
 {
 
-bool Entity::changeName(GameManager& manager, const std::string& new_name)
+bool Entity::changeName(GameScene& scene, const std::string& new_name)
 {
-	if (manager.renameEntity(this, new_name))
+	if (scene.renameEntity(this, new_name))
 	{
 		name = new_name;
 		return true;

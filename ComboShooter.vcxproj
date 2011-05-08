@@ -13,7 +13,9 @@
   <ItemGroup>
     <ClInclude Include="src\game\Entity.hpp" />
     <ClInclude Include="src\game\GameManager.hpp" />
+    <ClInclude Include="src\game\GraphicsManager.hpp" />
     <ClInclude Include="src\game\InputManager.hpp" />
+    <ClInclude Include="src\game\TestScene.hpp" />
     <ClInclude Include="src\image\ImageLoader.hpp" />
     <ClInclude Include="src\util2d\Sprite.hpp" />
     <ClInclude Include="src\util2d\SpriteBatch.hpp" />
@@ -35,9 +37,11 @@
   <ItemGroup>
     <ClCompile Include="src\game\Entity.cpp" />
     <ClCompile Include="src\game\GameManager.cpp" />
+    <ClCompile Include="src\game\GraphicsManager.cpp" />
     <ClCompile Include="src\game\InputManager.cpp" />
+    <ClCompile Include="src\game\TestScene.cpp" />
     <ClCompile Include="src\image\ImageLoader.cpp" />
-    <ClCompile Include="src\test_main.cpp" />
+    <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\util2d\Sprite.cpp" />
     <ClCompile Include="src\util2d\SpriteBatch.cpp" />
     <ClCompile Include="src\util2d\Tilemap.cpp" />

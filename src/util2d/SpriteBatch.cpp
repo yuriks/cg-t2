@@ -7,11 +7,10 @@
 #include "../util3d/gl/BufferObject.hpp"
 #include "../util3d/gl/ShaderProgram.hpp"
 #include "../util3d/gl/Texture.hpp"
+#include "../game/GraphicsManager.hpp"
 
 #include <cassert>
 #include <fstream>
-
-extern math::mat4 screen_transform;
 
 namespace util2d {
 
@@ -37,8 +36,8 @@ static_assert (sizeof(sprite_data) <= sprite_size, "Struct doesn't fit on a 32-b
 
 } // namespace
 
-SpriteBatch::SpriteBatch()
-	: texture(0), buffer_size(64)
+SpriteBatch::SpriteBatch(game::GraphicsManager& graphics_manager)
+	: graphics_manager(graphics_manager), texture(0), buffer_size(64)
 {
 	if (!spr_base_shader)
 		initialize_shared();
@@ -80,7 +79,7 @@ void SpriteBatch::draw() const
 
 	glUniform1i(u_Tex0, 0);
 
-	glUniformMatrix4fv(u_ScreenTransform, 1, false, &screen_transform.data[0]);
+	glUniformMatrix4fv(u_ScreenTransform, 1, false, &graphics_manager.projection_matrix.data[0]);
 
 	glActiveTexture(GL_TEXTURE0);
 	texture->bind(GL_TEXTURE_2D);
