@@ -37,7 +37,7 @@
     <ClCompile Include="src\game\GameManager.cpp" />
     <ClCompile Include="src\game\InputManager.cpp" />
     <ClCompile Include="src\image\ImageLoader.cpp" />
-    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\test_main.cpp" />
     <ClCompile Include="src\util2d\Sprite.cpp" />
     <ClCompile Include="src\util2d\SpriteBatch.cpp" />
     <ClCompile Include="src\util2d\Tilemap.cpp" />
