@@ -11,6 +11,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\game\Entity.hpp" />
+    <ClInclude Include="src\game\GameManager.hpp" />
     <ClInclude Include="src\game\InputManager.hpp" />
     <ClInclude Include="src\image\ImageLoader.hpp" />
     <ClInclude Include="src\util2d\Sprite.hpp" />
@@ -31,6 +33,8 @@
     <ClInclude Include="src\util3d\Vector.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\game\Entity.cpp" />
+    <ClCompile Include="src\game\GameManager.cpp" />
     <ClCompile Include="src\game\InputManager.cpp" />
     <ClCompile Include="src\image\ImageLoader.cpp" />
     <ClCompile Include="src\main.cpp" />
