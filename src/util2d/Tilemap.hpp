@@ -5,6 +5,8 @@
 #include "../util3d/gl/BufferObject.hpp"
 #include "../util3d/gl/Texture.hpp"
 
+#include <array>
+
 namespace game { class GraphicsManager; }
 
 namespace util2d {
@@ -20,6 +22,7 @@ public:
 	const gl::Texture* getTexture() const;
 
 	void setTilemap(unsigned short* data, int width, int height);
+	void setColor(float r, float g, float b, float a);
 
 	int x, y;
 	// Warning: You shouldn't rely on being able to read back absolute values
@@ -36,6 +39,7 @@ private:
 	game::GraphicsManager& graphics_manager;
 
 	gl::Texture* texture;
+	std::array<float, 4> color;
 
 	gl::VertexArrayObject tile_vao;
 	gl::BufferObject tile_vbo;
