@@ -14,7 +14,7 @@ class LayeredScene;
 class Entity
 {
 public:
-	virtual ~Entity();
+	virtual ~Entity() {}
 
 	virtual void update(GameManager& manager, LayeredScene& scene) = 0;
 
