@@ -35,7 +35,7 @@ TestScene::TestScene(GameManager& manager)
 
 void TestScene::update(GameManager& manager)
 {
-	bool do_text = manager.input_manager.getActionPressed(Action::FIRE);
+	bool do_text = manager.input_manager.getActionPressed(Action::QUIT);
 
 	if (do_text)
 	{
@@ -49,6 +49,11 @@ void TestScene::update(GameManager& manager)
 		std::transform(str3.cbegin(), str3.cend(), map.begin() + i+80*2, [](char c) { return (unsigned short)c - ' '; });
 		tilemap.setTilemap(&map[0], 80, 60);
 	}
+
+	if (manager.input_manager.getActionState(Action::FIRE))
+		tilemap.setColor(20/255.f, 184/255.f, 247/255.f, 1.f);
+	else
+		tilemap.setColor(1.f, 1.f, 1.f, 1.f);
 }
 
 void TestScene::draw(GameManager&)
