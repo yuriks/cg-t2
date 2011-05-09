@@ -39,9 +39,9 @@ void TestScene::update(GameManager& manager)
 
 	if (do_text)
 	{
-		std::string str1("abbbbbbbbbbbbc");
-		std::string str2("gHELLO WORLD!h");
-		std::string str3("deeeeeeeeeeeef");
+		std::string str1("baaaaaaaaaaaagaaaaaaagaaaaaaac");
+		std::string str2("fHELLO WORLD!fYURIKS!fTESTINGf");
+		std::string str3("daaaaaaaaaaaahaaaaaaahaaaaaaae");
 		unsigned int i = 2*80+2;
 
 		std::transform(str1.cbegin(), str1.cend(), map.begin() + i+80*0, [](char c) { return (unsigned short)c - ' '; });
