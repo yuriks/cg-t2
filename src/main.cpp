@@ -3,11 +3,14 @@
 #include "util3d/gl3w.hpp"
 #include "util3d/Vector.hpp"
 #include "util3d/MatrixTransform.hpp"
-#include "game/TestScene.hpp"
+#include "game/Entity.hpp"
+#include "game/SpriteLayer.hpp"
+#include "image/ImageLoader.hpp"
 
 #include <GL/glfw.h>
 #include <iostream>
 #include <memory>
+#include <fstream>
 
 int main()
 {
@@ -21,7 +24,45 @@ void GameManager::main_loop()
 {
 	GameManager game_manager;
 	game_manager.input_manager.addKeyAssignment(std::make_pair('Z', Action::FIRE));
-	game_manager.pushScene(std::unique_ptr<GameScene>(new TestScene(game_manager)));
+
+	LayeredScene* scene = new LayeredScene();
+	game_manager.pushScene(std::unique_ptr<GameScene>(scene));
+
+	SpriteLayer* layer = new SpriteLayer(game_manager);
+	scene->addEntity(layer);
+	layer->setDepth(0);
+
+	gl::Texture tex;
+	{
+		image::Image img;
+		{
+			std::ifstream f("data/ship-no-outline.png", std::ios::in | std::ios::binary);
+			image::Image::loadPNGFileRGBA8(img, f);
+			image::preMultiplyAlpha(img);
+		}
+
+		glActiveTexture(GL_TEXTURE0);
+		tex.bind(GL_TEXTURE_2D);
+
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+		tex.width = img.getWidth();
+		tex.height = img.getHeight();
+		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img.getWidth(), img.getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, img.getData());
+	}
+	layer->setTexture(tex);
+
+	SpriteHandle sprite = layer->newSprite();
+	{
+		util2d::Sprite& s = *sprite.spr();
+		s.img_w = 3;
+		s.img_h = 4;
+		s.x = 120;
+		s.y = 80;
+	}
 
 	double elapsed_game_time = 0.;
 	double elapsed_real_time = 0.;
