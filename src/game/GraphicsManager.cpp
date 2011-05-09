@@ -36,13 +36,13 @@ GraphicsManager::GraphicsManager()
 	glfwOpenWindowHint(GLFW_OPENGL_DEBUG_CONTEXT, GL_TRUE);
 	glfwOpenWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 	if (glfwOpenWindow(SCREEN_WIDTH, SCREEN_HEIGHT, 8, 8, 8, 8, 24, 8, GLFW_WINDOW) != GL_TRUE) {
-		std::runtime_error("Failed to open window.");
+		throw std::runtime_error("Failed to open window.");
 	}
 
 	if (gl3wInit() != 0) {
-		std::runtime_error("Failed to initialize gl3w.");
+		throw std::runtime_error("Failed to initialize gl3w.");
 	} else if (!gl3wIsSupported(3, 3)) {
-		std::runtime_error("OpenGL 3.3 not supported.");
+		throw std::runtime_error("OpenGL 3.3 not supported.");
 	}
 
 	if (glDebugMessageCallbackARB) {
