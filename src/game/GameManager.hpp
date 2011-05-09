@@ -1,8 +1,6 @@
 #ifndef COMBOSHOOTER_GAME_GAMEMANAGER_HPP
 #define COMBOSHOOTER_GAME_GAMEMANAGER_HPP
 
-#include "Entity.hpp"
-
 #include "InputManager.hpp"
 #include "GraphicsManager.hpp"
 #include "../util3d/Matrix.hpp"
@@ -32,29 +30,15 @@ struct Deref
 namespace game
 {
 
+class GameManager;
+
 class GameScene : boost::noncopyable
 {
 public:
-	virtual ~GameScene();
+	virtual ~GameScene() {};
 
-	virtual void update(GameManager& manager);
-	virtual void draw(GameManager& manager);
-
-	void addEntity(Entity* entity); // entity is now owned by GameManager
-	void removeEntity(Entity* entity); // entity is not owned by GameManager anymore
-
-	Entity* lookupEntity(const std::string& name);
-	bool renameEntity(Entity* entity, const std::string& new_name);
-
-private:
-	
-	// This owns all entities inserted into it
-	std::set<Entity*> entities;
-
-	// These don't own anything and are just references to objects inside `entities`.
-	std::map<std::string, Entity*> named_entities;
-	std::set<DrawableLayer*, Deref<DrawableLayer>> layers;
-	std::set<Thing*> things;
+	virtual void update(GameManager& manager) = 0;
+	virtual void draw(GameManager& manager) = 0;
 };
 
 class GameManager : boost::noncopyable
