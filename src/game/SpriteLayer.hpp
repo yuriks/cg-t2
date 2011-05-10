@@ -2,7 +2,7 @@
 #define COMBOSHOOTER_GAME_SPRITELAYER_HPP
 
 #include "Entity.hpp"
-#include "../util2d/Sprite.hpp"
+#include "../util2d/SpriteBatch.hpp"
 #include "../util3d/gl/Texture.hpp"
 
 #include <memory>
@@ -10,7 +10,7 @@
 namespace game
 {
 
-namespace detail { struct SpriteLayerHelper; }
+class SpriteLayer;
 
 class SpriteHandle
 {
@@ -21,14 +21,14 @@ public:
 	util2d::Sprite* spr() { return sprite; }
 
 private:
-	SpriteHandle(util2d::Sprite* spr, const std::shared_ptr<detail::SpriteLayerHelper>& helper, unsigned int index);
+	SpriteHandle(util2d::Sprite* spr, const std::shared_ptr<SpriteLayer>& helper, unsigned int index);
 
 	// Disabled
 	SpriteHandle(const SpriteHandle&);
 	SpriteHandle& operator=(const SpriteHandle&);
 
 	util2d::Sprite* sprite;
-	std::shared_ptr<detail::SpriteLayerHelper> helper;
+	std::shared_ptr<SpriteLayer> helper;
 	unsigned int index;
 
 	friend class SpriteLayer;
@@ -48,7 +48,12 @@ public:
 	SpriteHandle newSprite();
 
 private:
-	std::shared_ptr<detail::SpriteLayerHelper> helper;
+	util2d::SpriteBatch sprite_batch;
+
+	std::vector<std::pair<util2d::Sprite *const, bool>> sprites;
+	unsigned int num_sprites;
+
+	friend class SpriteHandle;
 };
 
 } // namespace game
