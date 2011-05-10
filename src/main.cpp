@@ -28,7 +28,7 @@ void GameManager::main_loop()
 	LayeredScene* scene = new LayeredScene();
 	game_manager.pushScene(std::unique_ptr<GameScene>(scene));
 
-	SpriteLayer* layer = new SpriteLayer(game_manager);
+	auto layer = std::make_shared<SpriteLayer>(game_manager);
 	scene->addEntity(layer);
 	layer->setDepth(0);
 
