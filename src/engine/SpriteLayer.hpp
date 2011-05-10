@@ -15,10 +15,14 @@ class SpriteLayer;
 class SpriteHandle
 {
 public:
+	SpriteHandle();
 	SpriteHandle(SpriteHandle&& o);
 	~SpriteHandle();
 
+	SpriteHandle& operator=(SpriteHandle&& o);
+
 	util2d::Sprite* spr() { return sprite; }
+	void swap(SpriteHandle& o);
 
 private:
 	SpriteHandle(util2d::Sprite* spr, const std::shared_ptr<SpriteLayer>& layer, unsigned int index);
@@ -57,5 +61,16 @@ private:
 };
 
 } // namespace engine
+
+namespace std
+{
+
+template <>
+inline void swap(engine::SpriteHandle& a, engine::SpriteHandle& b)
+{
+	a.swap(b);
+}
+
+} // namespace std
 
 #endif // COMBOSHOOTER_ENGINE_SPRITELAYER_HPP

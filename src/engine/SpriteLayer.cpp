@@ -9,9 +9,15 @@
 namespace engine
 {
 
-SpriteHandle::SpriteHandle(SpriteHandle&& o)
-	: sprite(std::move(o.sprite)), layer(std::move(o.layer)), index(o.index)
+SpriteHandle::SpriteHandle()
+	: sprite(0), layer(0), index(0)
 {
+}
+
+SpriteHandle::SpriteHandle(SpriteHandle&& o)
+	: sprite(0), layer(0), index(0)
+{
+	swap(o);
 }
 
 SpriteHandle::~SpriteHandle()
@@ -24,9 +30,22 @@ SpriteHandle::~SpriteHandle()
 	}
 }
 
+SpriteHandle& SpriteHandle::operator=(SpriteHandle&& o)
+{
+	swap(o);
+	return *this;
+}
+
 SpriteHandle::SpriteHandle(util2d::Sprite* spr, const std::shared_ptr<SpriteLayer>& layer, unsigned int index)
 	: sprite(spr), layer(layer), index(index)
 {
+}
+
+void SpriteHandle::swap(SpriteHandle& o)
+{
+	std::swap(sprite, o.sprite);
+	std::swap(layer, o.layer);
+	std::swap(index, o.index);
 }
 
 SpriteLayer::SpriteLayer(GameManager& manager)
