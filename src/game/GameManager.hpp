@@ -3,6 +3,7 @@
 
 #include "InputManager.hpp"
 #include "GraphicsManager.hpp"
+#include "ResourceManager.hpp"
 #include "../util3d/Matrix.hpp"
 
 #include <vector>
@@ -60,6 +61,7 @@ public:
 	static void main_loop();
 
 	// Order is important!
+	ResourceManager resource_manager;
 	GraphicsManager graphics_manager;
 	InputManager input_manager;
 

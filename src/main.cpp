@@ -32,28 +32,8 @@ void GameManager::main_loop()
 	scene->addEntity(layer);
 	layer->setDepth(0);
 
-	gl::Texture tex;
-	{
-		image::Image img;
-		{
-			std::ifstream f("data/ship-no-outline.png", std::ios::in | std::ios::binary);
-			image::Image::loadPNGFileRGBA8(img, f);
-			image::preMultiplyAlpha(img);
-		}
-
-		glActiveTexture(GL_TEXTURE0);
-		tex.bind(GL_TEXTURE_2D);
-
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-		glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-		tex.width = img.getWidth();
-		tex.height = img.getHeight();
-		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img.getWidth(), img.getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, img.getData());
-	}
-	layer->setTexture(&tex);
+	std::shared_ptr<gl::Texture> tex = game_manager.resource_manager.loadTexture("data/ship-no-outline.png");
+	layer->setTexture(tex.get());
 
 	SpriteHandle sprite = layer->newSprite();
 	{

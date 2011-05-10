@@ -17,6 +17,7 @@
     <ClInclude Include="src\game\InputManager.hpp" />
     <ClInclude Include="src\game\SpriteLayer.hpp" />
     <ClInclude Include="src\game\TestScene.hpp" />
+    <ClInclude Include="src\game\ResourceManager.hpp" />
     <ClInclude Include="src\image\ImageLoader.hpp" />
     <ClInclude Include="src\util2d\Sprite.hpp" />
     <ClInclude Include="src\util2d\SpriteBatch.hpp" />
@@ -40,6 +41,7 @@
     <ClCompile Include="src\game\GameManager.cpp" />
     <ClCompile Include="src\game\GraphicsManager.cpp" />
     <ClCompile Include="src\game\InputManager.cpp" />
+    <ClCompile Include="src\game\ResourceManager.cpp" />
     <ClCompile Include="src\game\SpriteLayer.cpp" />
     <ClCompile Include="src\game\TestScene.cpp" />
     <ClCompile Include="src\image\ImageLoader.cpp" />
