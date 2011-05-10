@@ -1,5 +1,5 @@
-#ifndef COMBOSHOOTER_GAME_SPRITELAYER_HPP
-#define COMBOSHOOTER_GAME_SPRITELAYER_HPP
+#ifndef COMBOSHOOTER_ENGINE_SPRITELAYER_HPP
+#define COMBOSHOOTER_ENGINE_SPRITELAYER_HPP
 
 #include "Entity.hpp"
 #include "../util2d/SpriteBatch.hpp"
@@ -7,7 +7,7 @@
 
 #include <memory>
 
-namespace game
+namespace engine
 {
 
 class SpriteLayer;
@@ -56,6 +56,6 @@ private:
 	friend class SpriteHandle;
 };
 
-} // namespace game
+} // namespace engine
 
-#endif // COMBOSHOOTER_GAME_SPRITELAYER_HPP
+#endif // COMBOSHOOTER_ENGINE_SPRITELAYER_HPP

@@ -1,12 +1,12 @@
-#ifndef COMBOSHOOTER_GAME_ENTITY_HPP
-#define COMBOSHOOTER_GAME_ENTITY_HPP
+#ifndef COMBOSHOOTER_ENGINE_ENTITY_HPP
+#define COMBOSHOOTER_ENGINE_ENTITY_HPP
 
 #include "GameManager.hpp"
 
 #include <string>
 #include <memory>
 
-namespace game
+namespace engine
 {
 
 class LayeredScene;
@@ -65,6 +65,6 @@ private:
 	std::set<Thing*> things;
 };
 
-} // namespace game
+} // namespace engine
 
-#endif // COMBOSHOOTER_GAME_ENTITY_HPP
+#endif // COMBOSHOOTER_ENGINE_ENTITY_HPP

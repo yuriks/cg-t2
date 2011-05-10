@@ -1,10 +1,10 @@
-#include "game/GameManager.hpp"
+#include "engine/GameManager.hpp"
 
 #include "util3d/gl3w.hpp"
 #include "util3d/Vector.hpp"
 #include "util3d/MatrixTransform.hpp"
-#include "game/Entity.hpp"
-#include "game/SpriteLayer.hpp"
+#include "engine/Entity.hpp"
+#include "engine/SpriteLayer.hpp"
 #include "image/ImageLoader.hpp"
 
 #include <GL/glfw.h>
@@ -14,10 +14,10 @@
 
 int main()
 {
-	game::GameManager::main_loop();
+	engine::GameManager::main_loop();
 }
 
-namespace game
+namespace engine
 {
 
 void GameManager::main_loop()
@@ -72,4 +72,4 @@ void GameManager::main_loop()
 	}
 }
 
-} // namespace game
+} // namespace engine

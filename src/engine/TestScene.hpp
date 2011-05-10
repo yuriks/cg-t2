@@ -1,12 +1,12 @@
-#ifndef COMBOSHOOTER_GAME_TESTSCENE_HPP
-#define COMBOSHOOTER_GAME_TESTSCENE_HPP
+#ifndef COMBOSHOOTER_ENGINE_TESTSCENE_HPP
+#define COMBOSHOOTER_ENGINE_TESTSCENE_HPP
 
 #include "GameManager.hpp"
 #include "../util2d/Tilemap.hpp"
 
 #include <array>
 
-namespace game
+namespace engine
 {
 
 class TestScene : public GameScene
@@ -23,6 +23,6 @@ private:
 	std::array<unsigned short, 80*60> map;
 };
 
-} // namespace game
+} // namespace engine
 
-#endif // COMBOSHOOTER_GAME_TESTSCENE_HPP
+#endif // COMBOSHOOTER_ENGINE_TESTSCENE_HPP

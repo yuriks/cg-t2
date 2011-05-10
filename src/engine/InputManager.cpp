@@ -2,7 +2,7 @@
 
 #include <GL/glfw.h>
 
-namespace game
+namespace engine
 {
 
 namespace
@@ -73,4 +73,4 @@ void InputManager::removeKeyAssignment(std::pair<int, Action::type> assignment)
 	assignments.erase(assignment);
 }
 
-} // namespace game
+} // namespace engine

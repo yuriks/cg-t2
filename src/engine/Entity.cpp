@@ -2,7 +2,7 @@
 
 #include "GameManager.hpp"
 
-namespace game
+namespace engine
 {
 
 bool Entity::changeName(LayeredScene& scene, const std::string& new_name)
@@ -102,4 +102,4 @@ bool LayeredScene::renameEntity(const std::shared_ptr<Entity>& entity, const std
 	}
 }
 
-} // namespace game
+} // namespace engine

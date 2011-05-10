@@ -6,7 +6,7 @@
 #include <vector>
 #include <boost/noncopyable.hpp>
 
-namespace game
+namespace engine
 {
 
 SpriteHandle::SpriteHandle(SpriteHandle&& o)
@@ -81,4 +81,4 @@ SpriteHandle SpriteLayer::newSprite()
 	return SpriteHandle(spr, std::static_pointer_cast<SpriteLayer>(shared_from_this()), index);
 }
 
-} // namespace game
+} // namespace engine

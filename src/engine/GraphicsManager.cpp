@@ -10,7 +10,7 @@
 #include <iostream>
 #include <cassert>
 
-namespace game
+namespace engine
 {
 
 namespace
@@ -71,4 +71,4 @@ void GraphicsManager::swapBuffers()
 	glfwSwapBuffers();
 }
 
-} // namespace game
+} // namespace engine

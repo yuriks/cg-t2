@@ -1,5 +1,5 @@
-#ifndef COMBOSHOOTER_GAME_GAMEMANAGER_HPP
-#define COMBOSHOOTER_GAME_GAMEMANAGER_HPP
+#ifndef COMBOSHOOTER_ENGINE_GAMEMANAGER_HPP
+#define COMBOSHOOTER_ENGINE_GAMEMANAGER_HPP
 
 #include "InputManager.hpp"
 #include "GraphicsManager.hpp"
@@ -28,7 +28,7 @@ struct Deref
 	}
 };
 
-namespace game
+namespace engine
 {
 
 class GameManager;
@@ -72,6 +72,6 @@ private:
 	bool is_slow;
 };
 
-} // namespace game
+} // namespace engine
 
-#endif // COMBOSHOOTER_GAME_GAMEMANAGER_HPP
+#endif // COMBOSHOOTER_ENGINE_GAMEMANAGER_HPP

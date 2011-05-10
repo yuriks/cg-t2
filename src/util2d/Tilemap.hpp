@@ -7,14 +7,14 @@
 
 #include <array>
 
-namespace game { class GraphicsManager; }
+namespace engine { class GraphicsManager; }
 
 namespace util2d {
 
 class Tilemap
 {
 public:
-	Tilemap(game::GraphicsManager& graphics_manager, int x, int y, int width, int height);
+	Tilemap(engine::GraphicsManager& graphics_manager, int x, int y, int width, int height);
 
 	void draw();
 
@@ -36,7 +36,7 @@ public:
 private:
 	void fixupScrolling();
 
-	game::GraphicsManager& graphics_manager;
+	engine::GraphicsManager& graphics_manager;
 
 	gl::Texture* texture;
 	std::array<float, 4> color;

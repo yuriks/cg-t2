@@ -1,6 +1,6 @@
 #include "GameManager.hpp"
 
-namespace game
+namespace engine
 {
 
 GameManager::GameManager()
@@ -42,4 +42,4 @@ void GameManager::stopGame()
 	running = false;
 }
 
-} // namespace game
+} // namespace engine

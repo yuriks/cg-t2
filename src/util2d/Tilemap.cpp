@@ -7,7 +7,7 @@
 #include "../util3d/gl/BufferObject.hpp"
 #include "../util3d/gl/ShaderProgram.hpp"
 #include "../util3d/gl/Texture.hpp"
-#include "../game/GraphicsManager.hpp"
+#include "../engine/GraphicsManager.hpp"
 
 #include <cassert>
 #include <fstream>
@@ -30,7 +30,7 @@ static_assert (sizeof(tile_data) == tile_size, "Struct doesn't fit on a 4-byte s
 
 } // namespace
 
-Tilemap::Tilemap(game::GraphicsManager& graphics_manager, int x, int y, int width, int height)
+Tilemap::Tilemap(engine::GraphicsManager& graphics_manager, int x, int y, int width, int height)
 	: graphics_manager(graphics_manager), x(x), y(y), offx(0), offy(0), texture(0)
 {
 	color.fill(1.f);

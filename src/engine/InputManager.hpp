@@ -1,11 +1,11 @@
-#ifndef COMBOSHOOTER_GAME_INPUTMANAGER_HPP
-#define COMBOSHOOTER_GAME_INPUTMANAGER_HPP
+#ifndef COMBOSHOOTER_ENGINE_INPUTMANAGER_HPP
+#define COMBOSHOOTER_ENGINE_INPUTMANAGER_HPP
 
 #include <array>
 #include <set>
 #include <utility>
 
-namespace game
+namespace engine
 {
 
 struct Action
@@ -38,6 +38,6 @@ private:
 	std::set<std::pair<int, Action::type>> assignments;
 };
 
-} // namespace game
+} // namespace engine
 
-#endif // COMBOSHOOTER_GAME_INPUTMANAGER_HPP
+#endif // COMBOSHOOTER_ENGINE_INPUTMANAGER_HPP

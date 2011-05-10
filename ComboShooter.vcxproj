@@ -11,13 +11,13 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\game\Entity.hpp" />
-    <ClInclude Include="src\game\GameManager.hpp" />
-    <ClInclude Include="src\game\GraphicsManager.hpp" />
-    <ClInclude Include="src\game\InputManager.hpp" />
-    <ClInclude Include="src\game\SpriteLayer.hpp" />
-    <ClInclude Include="src\game\TestScene.hpp" />
-    <ClInclude Include="src\game\ResourceManager.hpp" />
+    <ClInclude Include="src\engine\Entity.hpp" />
+    <ClInclude Include="src\engine\GameManager.hpp" />
+    <ClInclude Include="src\engine\GraphicsManager.hpp" />
+    <ClInclude Include="src\engine\InputManager.hpp" />
+    <ClInclude Include="src\engine\SpriteLayer.hpp" />
+    <ClInclude Include="src\engine\TestScene.hpp" />
+    <ClInclude Include="src\engine\ResourceManager.hpp" />
     <ClInclude Include="src\image\ImageLoader.hpp" />
     <ClInclude Include="src\util2d\Sprite.hpp" />
     <ClInclude Include="src\util2d\SpriteBatch.hpp" />
@@ -37,13 +37,13 @@
     <ClInclude Include="src\util3d\Vector.hpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\game\Entity.cpp" />
-    <ClCompile Include="src\game\GameManager.cpp" />
-    <ClCompile Include="src\game\GraphicsManager.cpp" />
-    <ClCompile Include="src\game\InputManager.cpp" />
-    <ClCompile Include="src\game\ResourceManager.cpp" />
-    <ClCompile Include="src\game\SpriteLayer.cpp" />
-    <ClCompile Include="src\game\TestScene.cpp" />
+    <ClCompile Include="src\engine\Entity.cpp" />
+    <ClCompile Include="src\engine\GameManager.cpp" />
+    <ClCompile Include="src\engine\GraphicsManager.cpp" />
+    <ClCompile Include="src\engine\InputManager.cpp" />
+    <ClCompile Include="src\engine\ResourceManager.cpp" />
+    <ClCompile Include="src\engine\SpriteLayer.cpp" />
+    <ClCompile Include="src\engine\TestScene.cpp" />
     <ClCompile Include="src\image\ImageLoader.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\util2d\Sprite.cpp" />

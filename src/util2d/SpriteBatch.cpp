@@ -7,7 +7,7 @@
 #include "../util3d/gl/BufferObject.hpp"
 #include "../util3d/gl/ShaderProgram.hpp"
 #include "../util3d/gl/Texture.hpp"
-#include "../game/GraphicsManager.hpp"
+#include "../engine/GraphicsManager.hpp"
 
 #include <cassert>
 #include <fstream>
@@ -36,7 +36,7 @@ static_assert (sizeof(sprite_data) <= sprite_size, "Struct doesn't fit on a 32-b
 
 } // namespace
 
-SpriteBatch::SpriteBatch(game::GraphicsManager& graphics_manager)
+SpriteBatch::SpriteBatch(engine::GraphicsManager& graphics_manager)
 	: graphics_manager(graphics_manager), texture(0), buffer_size(64)
 {
 	if (!spr_base_shader)

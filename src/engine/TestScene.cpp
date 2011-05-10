@@ -3,7 +3,7 @@
 #include "../image/ImageLoader.hpp"
 #include <fstream>
 
-namespace game
+namespace engine
 {
 
 TestScene::TestScene(GameManager& manager)
@@ -63,4 +63,4 @@ void TestScene::draw(GameManager&)
 	tilemap.draw();
 }
 
-} // namespace game
+} // namespace engine

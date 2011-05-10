@@ -1,5 +1,5 @@
-#ifndef COMBOSHOOTER_GAME_RESOURCEMANAGER_HPP
-#define COMBOSHOOTER_GAME_RESOURCEMANAGER_HPP
+#ifndef COMBOSHOOTER_ENGINE_RESOURCEMANAGER_HPP
+#define COMBOSHOOTER_ENGINE_RESOURCEMANAGER_HPP
 
 #include "../util3d/gl/Texture.hpp"
 #include "../image/ImageLoader.hpp"
@@ -8,7 +8,7 @@
 #include <string>
 #include <map>
 
-namespace game
+namespace engine
 {
 
 class ResourceManager
@@ -22,6 +22,6 @@ private:
 	std::map<std::string, std::weak_ptr<image::Image>> images;
 };
 
-} // namespace game
+} // namespace engine
 
-#endif // COMBOSHOOTER_GAME_RESOURCEMANAGER_HPP
+#endif // COMBOSHOOTER_ENGINE_RESOURCEMANAGER_HPP

@@ -1,11 +1,11 @@
-#ifndef COMBOSHOOTER_GAME_GRAPHICSMANAGER_HPP
-#define COMBOSHOOTER_GAME_GRAPHICSMANAGER_HPP
+#ifndef COMBOSHOOTER_ENGINE_GRAPHICSMANAGER_HPP
+#define COMBOSHOOTER_ENGINE_GRAPHICSMANAGER_HPP
 
 #include "../util3d/Matrix.hpp"
 
 #include <boost/noncopyable.hpp>
 
-namespace game
+namespace engine
 {
 
 class GraphicsManager : boost::noncopyable
@@ -22,6 +22,6 @@ public:
 	math::mat4 projection_matrix;
 };
 
-} // namespace game
+} // namespace engine
 
-#endif // COMBOSHOOTER_GAME_GRAPHICSMANAGER_HPP
+#endif // COMBOSHOOTER_ENGINE_GRAPHICSMANAGER_HPP

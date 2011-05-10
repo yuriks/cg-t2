@@ -2,7 +2,7 @@
 
 #include <fstream>
 
-namespace game
+namespace engine
 {
 
 std::shared_ptr<gl::Texture> ResourceManager::loadTexture(const std::string& fname)
@@ -60,4 +60,4 @@ std::shared_ptr<image::Image> ResourceManager::loadImage(const std::string& fnam
 	return img;
 }
 
-} // namespace game
+} // namespace engine
