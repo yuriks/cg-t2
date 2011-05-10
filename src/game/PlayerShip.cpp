@@ -29,20 +29,27 @@ void PlayerShip::update(engine::GameManager& manager, engine::LayeredScene& /*sc
 	using engine::Action;
 	engine::InputManager& input = manager.input_manager;
 
+	const float speed_s = 1.f / (math::vec::length(speed)/6.f + 1.f);
+
 	if (input.getActionState(Action::LEFT))
 	{
-		angle += math::PI/64.f;
+		angle += math::PI/64.f * speed_s;
 	}
 	if (input.getActionState(Action::RIGHT))
 	{
-		angle -= math::PI/64.f;
+		angle -= math::PI/64.f * speed_s;
 	}
-	bool accel_anim = false;
+	unsigned char anim_frame = 0;
 	if (input.getActionState(Action::ACCEL))
 	{
-		const math::vec2 accel = math::make_vec(std::cos(angle), -std::sin(angle)) * 0.1f;
+		const math::vec2 accel = math::make_vec(std::cos(angle), -std::sin(angle)) * 0.05f;
 		speed += accel;
-		accel_anim = true;
+		anim_frame = 1;
+	}
+	else if (input.getActionState(Action::BRAKE))
+	{
+		speed *= 0.98;
+		anim_frame = 2;
 	}
 
 	position += speed;
@@ -85,10 +92,7 @@ void PlayerShip::update(engine::GameManager& manager, engine::LayeredScene& /*sc
 		s.transform(0, 1) = sin;
 		s.transform(1, 1) = cos;
 
-		if (accel_anim)
-			s.img_y = 3;
-		else
-			s.img_y = 0;
+		s.img_y = anim_frame * 3;
 	}
 }
 

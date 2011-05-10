@@ -27,6 +27,7 @@ void GameManager::main_loop()
 	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_LEFT, Action::LEFT));
 	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_RIGHT, Action::RIGHT));
 	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_UP, Action::ACCEL));
+	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_DOWN, Action::BRAKE));
 	game_manager.input_manager.addKeyAssignment(std::make_pair('Z', Action::FIRE));
 
 	LayeredScene* scene = new LayeredScene();
