@@ -21,14 +21,14 @@ public:
 	util2d::Sprite* spr() { return sprite; }
 
 private:
-	SpriteHandle(util2d::Sprite* spr, const std::shared_ptr<SpriteLayer>& helper, unsigned int index);
+	SpriteHandle(util2d::Sprite* spr, const std::shared_ptr<SpriteLayer>& layer, unsigned int index);
 
 	// Disabled
 	SpriteHandle(const SpriteHandle&);
 	SpriteHandle& operator=(const SpriteHandle&);
 
 	util2d::Sprite* sprite;
-	std::shared_ptr<SpriteLayer> helper;
+	std::shared_ptr<SpriteLayer> layer;
 	unsigned int index;
 
 	friend class SpriteLayer;

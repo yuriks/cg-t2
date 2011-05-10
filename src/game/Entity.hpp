@@ -57,7 +57,6 @@ public:
 
 private:
 	
-	// This owns all entities inserted into it
 	std::set<std::shared_ptr<Entity>> entities;
 
 	// These don't own anything and are just references to objects inside `entities`.

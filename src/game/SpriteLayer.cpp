@@ -10,7 +10,7 @@ namespace game
 {
 
 SpriteHandle::SpriteHandle(SpriteHandle&& o)
-	: sprite(std::move(o.sprite)), helper(std::move(o.helper)), index(o.index)
+	: sprite(std::move(o.sprite)), layer(std::move(o.layer)), index(o.index)
 {
 }
 
@@ -19,13 +19,13 @@ SpriteHandle::~SpriteHandle()
 	if (sprite)
 	{
 		sprite->img_w = sprite->img_h = 0;
-		helper->sprites[index].second = false;
-		helper->num_sprites -= 1;
+		layer->sprites[index].second = false;
+		layer->num_sprites -= 1;
 	}
 }
 
-SpriteHandle::SpriteHandle(util2d::Sprite* spr, const std::shared_ptr<SpriteLayer>& helper, unsigned int index)
-	: sprite(spr), helper(helper), index(index)
+SpriteHandle::SpriteHandle(util2d::Sprite* spr, const std::shared_ptr<SpriteLayer>& layer, unsigned int index)
+	: sprite(spr), layer(layer), index(index)
 {
 }
 
