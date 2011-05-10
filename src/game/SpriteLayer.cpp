@@ -44,9 +44,9 @@ void SpriteLayer::draw(GameManager&, LayeredScene&)
 	sprite_batch.draw();
 }
 
-void SpriteLayer::setTexture(gl::Texture& tex)
+void SpriteLayer::setTexture(gl::Texture* tex)
 {
-	sprite_batch.setTexture(&tex);
+	sprite_batch.setTexture(tex);
 }
 
 void SpriteLayer::setDepth(int depth_)

@@ -53,7 +53,7 @@ void GameManager::main_loop()
 		tex.height = img.getHeight();
 		glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, img.getWidth(), img.getHeight(), 0, GL_RGBA, GL_UNSIGNED_BYTE, img.getData());
 	}
-	layer->setTexture(tex);
+	layer->setTexture(&tex);
 
 	SpriteHandle sprite = layer->newSprite();
 	{

@@ -42,7 +42,7 @@ public:
 	virtual void update(GameManager& manager, LayeredScene& scene);
 	virtual void draw(GameManager& manager, LayeredScene& scene);
 
-	void setTexture(gl::Texture& tex);
+	void setTexture(gl::Texture* tex);
 	void setDepth(int depth);
 
 	SpriteHandle newSprite();
