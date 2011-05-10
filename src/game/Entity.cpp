@@ -96,7 +96,8 @@ bool LayeredScene::renameEntity(const std::shared_ptr<Entity>& entity, const std
 	else
 	{
 		named_entities.erase(entity->getName());
-		named_entities.insert(lb, make_pair(new_name, entity.get()));
+		if (!new_name.empty())
+			named_entities.insert(lb, make_pair(new_name, entity.get()));
 		return true;
 	}
 }
