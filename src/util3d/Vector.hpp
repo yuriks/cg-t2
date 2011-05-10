@@ -11,6 +11,8 @@ typedef mat<4, 1> vec4;
 typedef mat<3, 1> vec3;
 typedef mat<2, 1> vec2;
 
+static const float PI = 3.14159265358979323846264338327950288419716939937510f;
+
 inline vec2 make_vec(float x, float y)
 {
 	vec2 v = {{x, y}};
