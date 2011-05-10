@@ -6,6 +6,7 @@
 #include "engine/Entity.hpp"
 #include "engine/SpriteLayer.hpp"
 #include "image/ImageLoader.hpp"
+#include "game/PlayerShip.hpp"
 
 #include <GL/glfw.h>
 #include <iostream>
@@ -23,26 +24,23 @@ namespace engine
 void GameManager::main_loop()
 {
 	GameManager game_manager;
+	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_LEFT, Action::LEFT));
+	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_RIGHT, Action::RIGHT));
+	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_UP, Action::ACCEL));
 	game_manager.input_manager.addKeyAssignment(std::make_pair('Z', Action::FIRE));
 
 	LayeredScene* scene = new LayeredScene();
 	game_manager.pushScene(std::unique_ptr<GameScene>(scene));
 
 	auto layer = std::make_shared<SpriteLayer>(game_manager);
-	scene->addEntity(layer);
+	layer->changeName(*scene, "gameplay_sprite_layer");
 	layer->setDepth(0);
+	scene->addEntity(layer);
 
 	std::shared_ptr<gl::Texture> tex = game_manager.resource_manager.loadTexture("data/ship-no-outline.png");
 	layer->setTexture(tex.get());
 
-	SpriteHandle sprite = layer->newSprite();
-	{
-		util2d::Sprite& s = *sprite.spr();
-		s.img_w = 3;
-		s.img_h = 4;
-		s.x = 120;
-		s.y = 80;
-	}
+	scene->addEntity(std::make_shared<game::PlayerShip>(*scene));
 
 	double elapsed_game_time = 0.;
 	double elapsed_real_time = 0.;

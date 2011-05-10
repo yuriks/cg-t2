@@ -17,6 +17,8 @@ void GameManager::update()
 
 void GameManager::draw()
 {
+	glClear(GL_COLOR_BUFFER_BIT);
+
 	activeScene().draw(*this);
 
 	graphics_manager.swapBuffers();
