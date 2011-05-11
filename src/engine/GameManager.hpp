@@ -13,7 +13,7 @@
 #include <functional>
 #include <memory>
 #include <utility>
-#include <boost/noncopyable.hpp>
+#include "boost/noncopyable.hpp"
 
 template <typename T, typename F = std::less<T>>
 struct Deref

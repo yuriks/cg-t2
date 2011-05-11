@@ -3,7 +3,7 @@
 
 #include "../gl3w.hpp"
 
-#include <boost/noncopyable.hpp>
+#include "boost/noncopyable.hpp"
 
 namespace gl {
 

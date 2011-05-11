@@ -7,7 +7,7 @@
 
 #include <iostream>
 #include <vector>
-#include <boost/noncopyable.hpp>
+#include "boost/noncopyable.hpp"
 
 namespace gl {
 

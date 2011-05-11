@@ -5,7 +5,7 @@
 #include <cassert>
 #include <vector>
 #include <algorithm>
-#include <boost/noncopyable.hpp>
+#include "boost/noncopyable.hpp"
 
 namespace engine
 {

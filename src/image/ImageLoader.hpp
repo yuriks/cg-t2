@@ -1,7 +1,7 @@
 #ifndef COMBOSHOOTER_IMAGE_IMAGELOADER_H
 #define COMBOSHOOTER_IMAGE_IMAGELOADER_H
 
-#include <boost/noncopyable.hpp>
+#include "boost/noncopyable.hpp"
 
 #include <iosfwd>
 #include <stdexcept>
