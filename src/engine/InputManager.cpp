@@ -1,6 +1,7 @@
 #include "InputManager.hpp"
 
 #include <GL/glfw.h>
+#include <algorithm>
 
 namespace engine
 {
