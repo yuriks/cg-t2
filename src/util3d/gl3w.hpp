@@ -1,7 +1,7 @@
 #ifndef __gl3w_h_
 #define __gl3w_h_
 
-#include <GL3/gl3.h>
+#include "gl3.h"
 
 #ifndef __gl_h_
 #define __gl_h_
