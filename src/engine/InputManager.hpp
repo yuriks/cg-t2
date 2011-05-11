@@ -14,7 +14,7 @@ struct Action
 	{
 		LEFT, RIGHT,
 		ACCEL, BRAKE,
-		FIRE,
+		FIRE, CHANGE_FIRE,
 		MENU, QUIT,
 		MAX
 	};

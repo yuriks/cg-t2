@@ -4,6 +4,9 @@
 #include "../engine/Entity.hpp"
 #include "../util3d/Vector.hpp"
 #include "../engine/SpriteLayer.hpp"
+#include "../engine/BulletLayer.hpp"
+
+#include <memory>
 
 namespace game
 {
@@ -21,6 +24,9 @@ public:
 
 protected:
 	engine::SpriteHandle sprite[4];
+	std::shared_ptr<engine::BulletLayer> bullet_layer;
+	unsigned int shoot_cooloff;
+	unsigned int current_shoot;
 };
 
 } // namespace game
