@@ -2,6 +2,7 @@
 
 #include "../image/ImageLoader.hpp"
 #include <fstream>
+#include <algorithm>
 
 namespace engine
 {
