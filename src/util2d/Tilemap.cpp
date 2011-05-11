@@ -31,7 +31,7 @@ static_assert (sizeof(tile_data) == tile_size, "Struct doesn't fit on a 4-byte s
 } // namespace
 
 Tilemap::Tilemap(engine::GraphicsManager& graphics_manager, int x, int y, int width, int height)
-	: graphics_manager(graphics_manager), x(x), y(y), offx(0), offy(0), texture(0)
+	: x(x), y(y), offx(0), offy(0), graphics_manager(graphics_manager), texture(0)
 {
 	color.fill(1.f);
 
