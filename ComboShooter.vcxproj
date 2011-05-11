@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\engine\BulletLayer.hpp" />
     <ClInclude Include="src\engine\Entity.hpp" />
     <ClInclude Include="src\engine\GameManager.hpp" />
     <ClInclude Include="src\engine\GraphicsManager.hpp" />
@@ -38,6 +39,7 @@
     <ClInclude Include="src\util3d\Vector.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\engine\BulletLayer.cpp" />
     <ClCompile Include="src\engine\Entity.cpp" />
     <ClCompile Include="src\engine\GameManager.cpp" />
     <ClCompile Include="src\engine\GraphicsManager.cpp" />
