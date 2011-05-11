@@ -82,7 +82,7 @@ SpriteHandle SpriteLayer::newSprite()
 	if (sprites.size() > num_sprites)
 	{
 		auto it = std::find_if(sprites.begin(), sprites.end(),
-			[](const std::pair<util2d::Sprite *const, bool>& spr) { return spr.second == false; });
+			[](const std::pair<util2d::Sprite*, bool>& spr) { return spr.second == false; });
 
 		assert(it != sprites.end());
 

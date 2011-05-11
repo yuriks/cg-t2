@@ -54,7 +54,7 @@ public:
 private:
 	util2d::SpriteBatch sprite_batch;
 
-	std::vector<std::pair<util2d::Sprite *const, bool>> sprites;
+	std::vector<std::pair<util2d::Sprite*, bool>> sprites;
 	unsigned int num_sprites;
 
 	friend class SpriteHandle;
