@@ -31,7 +31,7 @@ namespace game
 {
 
 PlayerShip::PlayerShip(engine::LayeredScene& scene)
-	: position(math::make_vec(320.f, 240.f)), speed(math::make_vec(0.f, 0.f)), angle(math::PI/2.f), shoot_cooloff(0), current_shoot(1)
+	: position(math::make_vec(320.f, 240.f)), speed(math::make_vec(0.f, 0.f)), angle(math::PI/2.f), shoot_cooloff(0), current_shoot(0)
 {
 	{
 		auto layer = scene.lookupEntity("gameplay_sprite_layer");
