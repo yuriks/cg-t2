@@ -93,6 +93,9 @@
     <ClInclude Include="src\engine\BulletLayer.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\game\HudLayer.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\util3d\gl\Shader.cpp">
@@ -144,6 +147,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\engine\BulletLayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\HudLayer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

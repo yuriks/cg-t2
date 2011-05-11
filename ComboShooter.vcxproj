@@ -19,6 +19,7 @@
     <ClInclude Include="src\engine\SpriteLayer.hpp" />
     <ClInclude Include="src\engine\TestScene.hpp" />
     <ClInclude Include="src\engine\ResourceManager.hpp" />
+    <ClInclude Include="src\game\HudLayer.hpp" />
     <ClInclude Include="src\game\PlayerShip.hpp" />
     <ClInclude Include="src\image\ImageLoader.hpp" />
     <ClInclude Include="src\util2d\Sprite.hpp" />
@@ -47,6 +48,7 @@
     <ClCompile Include="src\engine\ResourceManager.cpp" />
     <ClCompile Include="src\engine\SpriteLayer.cpp" />
     <ClCompile Include="src\engine\TestScene.cpp" />
+    <ClCompile Include="src\game\HudLayer.cpp" />
     <ClCompile Include="src\game\PlayerShip.cpp" />
     <ClCompile Include="src\image\ImageLoader.cpp" />
     <ClCompile Include="src\main.cpp" />

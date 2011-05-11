@@ -1,5 +1,7 @@
 #include "PlayerShip.hpp"
 
+#include "HudLayer.hpp"
+
 #include <array>
 #include <cstdlib>
 
@@ -58,7 +60,7 @@ PlayerShip::PlayerShip(engine::LayeredScene& scene)
 	}
 }
 
-void PlayerShip::update(engine::GameManager& manager, engine::LayeredScene& /*scene*/)
+void PlayerShip::update(engine::GameManager& manager, engine::LayeredScene& scene)
 {
 	using engine::Action;
 	engine::InputManager& input = manager.input_manager;
@@ -90,6 +92,11 @@ void PlayerShip::update(engine::GameManager& manager, engine::LayeredScene& /*sc
 		current_shoot += 1;
 		if (current_shoot == shoot_types.size())
 			current_shoot = 0;
+
+		auto layer = scene.lookupEntity("hud_layer");
+		auto& hlayer = dynamic_cast<HudLayer&>(*layer);
+
+		hlayer.setSelectedShot(current_shoot + 1);
 	}
 
 	position += speed;

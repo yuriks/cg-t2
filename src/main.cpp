@@ -8,6 +8,7 @@
 #include "image/ImageLoader.hpp"
 #include "game/PlayerShip.hpp"
 #include "engine/BulletLayer.hpp"
+#include "game/HudLayer.hpp"
 
 #include <GL/glfw.h>
 #include <iostream>
@@ -25,6 +26,7 @@ namespace engine
 void GameManager::main_loop()
 {
 	GameManager game_manager;
+	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_ESC, Action::MENU));
 	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_LEFT, Action::LEFT));
 	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_RIGHT, Action::RIGHT));
 	game_manager.input_manager.addKeyAssignment(std::make_pair(GLFW_KEY_UP, Action::ACCEL));
@@ -44,6 +46,11 @@ void GameManager::main_loop()
 	bullet_layer->changeName(*scene, "player_bullet_layer");
 	bullet_layer->setDepth(-1);
 	scene->addEntity(bullet_layer);
+
+	auto hud_layer = std::make_shared<game::HudLayer>(game_manager);
+	hud_layer->changeName(*scene, "hud_layer");
+	hud_layer->setDepth(1);
+	scene->addEntity(hud_layer);
 
 	auto tex = game_manager.resource_manager.loadTexture("data/ship-no-outline.png");
 	layer->setTexture(tex.get());
